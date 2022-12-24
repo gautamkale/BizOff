@@ -1,7 +1,8 @@
 package com.bizoffs.order.entities;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
@@ -35,17 +36,17 @@ public class OrderItemAssoc implements Serializable {
 
 	//bi-directional many-to-one association to OrderHeader
 	@ManyToOne
-	@JoinColumn(name="TO_ORDER_ID")
+	@JoinColumn(name="TO_ORDER_ID", insertable=false, updatable=false)
 	private OrderHeader orderHeader1;
 
 	//bi-directional many-to-one association to OrderHeader
 	@ManyToOne
-	@JoinColumn(name="ORDER_ID")
+	@JoinColumn(name="ORDER_ID", insertable=false, updatable=false)
 	private OrderHeader orderHeader2;
 
 	//bi-directional many-to-one association to OrderItemAssocType
 	@ManyToOne
-	@JoinColumn(name="ORDER_ITEM_ASSOC_TYPE_ID")
+	@JoinColumn(name="ORDER_ITEM_ASSOC_TYPE_ID", insertable=false, updatable=false)
 	private OrderItemAssocType orderItemAssocType;
 
 	public OrderItemAssoc() {

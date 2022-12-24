@@ -39,7 +39,7 @@ public class OrderAdjustmentAttribute implements Serializable {
 
 	//bi-directional many-to-one association to OrderAdjustment
 	@ManyToOne
-	@JoinColumn(name="ORDER_ADJUSTMENT_ID")
+	@JoinColumn(name="ORDER_ADJUSTMENT_ID", insertable=false, updatable=false)
 	private OrderAdjustment orderAdjustment;
 
 	public OrderAdjustmentAttribute() {

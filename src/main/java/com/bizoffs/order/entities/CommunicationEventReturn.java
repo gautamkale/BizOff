@@ -38,7 +38,7 @@ public class CommunicationEventReturn implements Serializable {
 */
 	//bi-directional many-to-one association to ReturnHeader
 	@ManyToOne
-	@JoinColumn(name="RETURN_ID")
+	@JoinColumn(name="RETURN_ID", insertable=false, updatable=false)
 	private com.bizoffs.order.entities.ReturnHeader returnHeader;
 
 	public CommunicationEventReturn() {

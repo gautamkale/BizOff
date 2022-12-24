@@ -1,7 +1,8 @@
 package com.bizoffs.order.entities;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 
@@ -39,9 +40,9 @@ public class OrderTermAttribute implements Serializable {
 	//bi-directional many-to-one association to OrderTerm
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="ORDER_ID", referencedColumnName="ORDER_ID"),
-		@JoinColumn(name="ORDER_ITEM_SEQ_ID", referencedColumnName="ORDER_ITEM_SEQ_ID"),
-		@JoinColumn(name="TERM_TYPE_ID", referencedColumnName="TERM_TYPE_ID")
+		@JoinColumn(name="ORDER_ID", referencedColumnName="ORDER_ID", insertable=false, updatable=false),
+		@JoinColumn(name="ORDER_ITEM_SEQ_ID", referencedColumnName="ORDER_ITEM_SEQ_ID", insertable=false, updatable=false),
+		@JoinColumn(name="TERM_TYPE_ID", referencedColumnName="TERM_TYPE_ID", insertable=false, updatable=false)
 		})
 	private OrderTerm orderTerm;
 

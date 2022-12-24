@@ -1,7 +1,8 @@
 package com.bizoffs.order.entities;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 
@@ -35,7 +36,7 @@ public class ReturnItemTypeMap implements Serializable {
 
 	//bi-directional many-to-one association to ReturnHeaderType
 	@ManyToOne
-	@JoinColumn(name="RETURN_HEADER_TYPE_ID")
+	@JoinColumn(name="RETURN_HEADER_TYPE_ID", insertable=false, updatable=false)
 	private ReturnHeaderType returnHeaderType;
 
 	public ReturnItemTypeMap() {

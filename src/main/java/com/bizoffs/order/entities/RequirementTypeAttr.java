@@ -1,7 +1,8 @@
 package com.bizoffs.order.entities;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 
@@ -34,7 +35,7 @@ public class RequirementTypeAttr implements Serializable {
 
 	//bi-directional many-to-one association to RequirementType
 	@ManyToOne
-	@JoinColumn(name="REQUIREMENT_TYPE_ID")
+	@JoinColumn(name="REQUIREMENT_TYPE_ID", insertable=false, updatable=false)
 	private RequirementType requirementType;
 
 	public RequirementTypeAttr() {

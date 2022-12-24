@@ -68,12 +68,12 @@ public class CustRequestItem implements Serializable {
 
 	//bi-directional many-to-one association to CustRequest
 	@ManyToOne
-	@JoinColumn(name="CUST_REQUEST_ID")
+	@JoinColumn(name="CUST_REQUEST_ID", insertable=false, updatable=false)
 	private CustRequest custRequest;
 
 	//bi-directional many-to-one association to CustRequestResolution
 	@ManyToOne
-	@JoinColumn(name="CUST_REQUEST_RESOLUTION_ID")
+	@JoinColumn(name="CUST_REQUEST_RESOLUTION_ID", insertable=false, updatable=false)
 	private CustRequestResolution custRequestResolution;
 
 	//bi-directional many-to-one association to Product

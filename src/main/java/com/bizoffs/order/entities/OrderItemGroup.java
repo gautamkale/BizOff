@@ -1,7 +1,8 @@
 package com.bizoffs.order.entities;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -40,14 +41,14 @@ public class OrderItemGroup implements Serializable {
 
 	//bi-directional many-to-one association to OrderHeader
 	@ManyToOne
-	@JoinColumn(name="ORDER_ID")
+	@JoinColumn(name="ORDER_ID", insertable=false, updatable=false)
 	private OrderHeader orderHeader;
 
 	//bi-directional many-to-one association to OrderItemGroup
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="ORDER_ID", referencedColumnName="ORDER_ID"),
-		@JoinColumn(name="PARENT_GROUP_SEQ_ID", referencedColumnName="ORDER_ITEM_GROUP_SEQ_ID")
+		@JoinColumn(name="ORDER_ID", referencedColumnName="ORDER_ID", insertable=false, updatable=false),
+		@JoinColumn(name="PARENT_GROUP_SEQ_ID", referencedColumnName="ORDER_ITEM_GROUP_SEQ_ID", insertable=false, updatable=false)
 		})
 	private OrderItemGroup orderItemGroup;
 

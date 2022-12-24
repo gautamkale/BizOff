@@ -1,7 +1,8 @@
 package com.bizoffs.order.entities;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 
@@ -38,7 +39,7 @@ public class RequirementAttribute implements Serializable {
 
 	//bi-directional many-to-one association to Requirement
 	@ManyToOne
-	@JoinColumn(name="REQUIREMENT_ID")
+	@JoinColumn(name="REQUIREMENT_ID", insertable=false, updatable=false)
 	private Requirement requirement;
 
 	public RequirementAttribute() {

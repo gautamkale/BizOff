@@ -60,7 +60,7 @@ public class ShoppingListItem implements Serializable {
 
 	//bi-directional many-to-one association to ShoppingList
 	@ManyToOne
-	@JoinColumn(name="SHOPPING_LIST_ID")
+	@JoinColumn(name="SHOPPING_LIST_ID", insertable=false, updatable=false)
 	private ShoppingList shoppingList;
 
 	//bi-directional many-to-one association to ShoppingListItemSurvey

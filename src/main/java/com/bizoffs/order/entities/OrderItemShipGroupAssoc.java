@@ -1,7 +1,8 @@
 package com.bizoffs.order.entities;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
@@ -38,22 +39,22 @@ public class OrderItemShipGroupAssoc implements Serializable {
 
 	//bi-directional many-to-one association to OrderHeader
 	@ManyToOne
-	@JoinColumn(name="ORDER_ID")
+	@JoinColumn(name="ORDER_ID", insertable=false, updatable=false)
 	private OrderHeader orderHeader;
 
 	//bi-directional many-to-one association to OrderItem
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="ORDER_ID", referencedColumnName="ORDER_ID"),
-		@JoinColumn(name="ORDER_ITEM_SEQ_ID", referencedColumnName="ORDER_ITEM_SEQ_ID")
+		@JoinColumn(name="ORDER_ID", referencedColumnName="ORDER_ID", insertable=false, updatable=false),
+		@JoinColumn(name="ORDER_ITEM_SEQ_ID", referencedColumnName="ORDER_ITEM_SEQ_ID", insertable=false, updatable=false)
 		})
 	private OrderItem orderItem;
 
 	//bi-directional many-to-one association to OrderItemShipGroup
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="ORDER_ID", referencedColumnName="ORDER_ID"),
-		@JoinColumn(name="SHIP_GROUP_SEQ_ID", referencedColumnName="SHIP_GROUP_SEQ_ID")
+		@JoinColumn(name="ORDER_ID", referencedColumnName="ORDER_ID", insertable=false, updatable=false),
+		@JoinColumn(name="SHIP_GROUP_SEQ_ID", referencedColumnName="SHIP_GROUP_SEQ_ID", insertable=false, updatable=false)
 		})
 	private OrderItemShipGroup orderItemShipGroup;
 

@@ -1,7 +1,8 @@
 package com.bizoffs.order.entities;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 
@@ -38,7 +39,7 @@ public class CustRequestAttribute implements Serializable {
 
 	//bi-directional many-to-one association to CustRequest
 	@ManyToOne
-	@JoinColumn(name="CUST_REQUEST_ID")
+	@JoinColumn(name="CUST_REQUEST_ID", insertable=false, updatable=false)
 	private CustRequest custRequest;
 
 	public CustRequestAttribute() {

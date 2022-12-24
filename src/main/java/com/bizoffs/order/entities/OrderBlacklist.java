@@ -33,7 +33,7 @@ public class OrderBlacklist implements Serializable {
 
 	//bi-directional many-to-one association to OrderBlacklistType
 	@ManyToOne
-	@JoinColumn(name="ORDER_BLACKLIST_TYPE_ID1")
+	@JoinColumn(name="ORDER_BLACKLIST_TYPE_ID1", insertable=false, updatable=false)
 	private OrderBlacklistType orderBlacklistType;
 
 	public OrderBlacklist() {

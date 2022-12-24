@@ -50,7 +50,7 @@ public class WorkRequirementFulfillment implements Serializable {
 	}
 
 	@ManyToOne
-	@JoinColumn(name="REQUIREMENT_ID")
+	@JoinColumn(name="REQUIREMENT_ID", insertable=false, updatable=false)
 	private Requirement requirement;
 	
 	public WorkRequirementFulfillment() {

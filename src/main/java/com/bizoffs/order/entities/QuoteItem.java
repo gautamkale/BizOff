@@ -70,14 +70,14 @@ public class QuoteItem implements Serializable {
 
 	//bi-directional many-to-one association to CustRequest
 	@ManyToOne
-	@JoinColumn(name="CUST_REQUEST_ID")
+	@JoinColumn(name="CUST_REQUEST_ID", insertable=false, updatable=false)
 	private CustRequest custRequest;
 
 	//bi-directional many-to-one association to CustRequestItem
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="CUST_REQUEST_ID", referencedColumnName="CUST_REQUEST_ID"),
-		@JoinColumn(name="CUST_REQUEST_ITEM_SEQ_ID", referencedColumnName="CUST_REQUEST_ITEM_SEQ_ID")
+		@JoinColumn(name="CUST_REQUEST_ID", referencedColumnName="CUST_REQUEST_ID", insertable=false, updatable=false),
+		@JoinColumn(name="CUST_REQUEST_ITEM_SEQ_ID", referencedColumnName="CUST_REQUEST_ITEM_SEQ_ID", insertable=false, updatable=false)
 		})
 	private CustRequestItem custRequestItem;
 
@@ -98,7 +98,7 @@ public class QuoteItem implements Serializable {
 
 	//bi-directional many-to-one association to Quote
 	@ManyToOne
-	@JoinColumn(name="QUOTE_ID")
+	@JoinColumn(name="QUOTE_ID", insertable=false, updatable=false)
 	private Quote quote;
 
 	//bi-directional many-to-one association to SkillType

@@ -35,7 +35,7 @@ public class QuoteTypeAttr implements Serializable {
 
 	//bi-directional many-to-one association to QuoteType
 	@ManyToOne
-	@JoinColumn(name="QUOTE_TYPE_ID1")
+	@JoinColumn(name="QUOTE_TYPE_ID", insertable=false, updatable=false)
 	private QuoteType quoteType;
 
 	public QuoteTypeAttr() {

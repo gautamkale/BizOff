@@ -36,7 +36,7 @@ public class RequirementStatus implements Serializable {
 
 	//bi-directional many-to-one association to Requirement
 	@ManyToOne
-	@JoinColumn(name="REQUIREMENT_ID")
+	@JoinColumn(name="REQUIREMENT_ID", insertable=false, updatable=false)
 	private Requirement requirement;
 
 	//bi-directional many-to-one association to StatusItem

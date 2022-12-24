@@ -1,7 +1,8 @@
 package com.bizoffs.order.entities;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 
@@ -39,9 +40,9 @@ public class QuoteTermAttribute implements Serializable {
 	//bi-directional many-to-one association to QuoteTerm
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="QUOTE_ID", referencedColumnName="QUOTE_ID"),
-		@JoinColumn(name="QUOTE_ITEM_SEQ_ID", referencedColumnName="QUOTE_ITEM_SEQ_ID"),
-		@JoinColumn(name="TERM_TYPE_ID", referencedColumnName="TERM_TYPE_ID")
+		@JoinColumn(name="QUOTE_ID", referencedColumnName="QUOTE_ID", insertable=false, updatable=false),
+		@JoinColumn(name="QUOTE_ITEM_SEQ_ID", referencedColumnName="QUOTE_ITEM_SEQ_ID", insertable=false, updatable=false),
+		@JoinColumn(name="TERM_TYPE_ID", referencedColumnName="TERM_TYPE_ID", insertable=false, updatable=false)
 		})
 	private QuoteTerm quoteTerm;
 

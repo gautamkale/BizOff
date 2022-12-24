@@ -41,7 +41,7 @@ public class OrderHeaderNote implements Serializable {
 
 	//bi-directional many-to-one association to OrderHeader
 	@ManyToOne
-	@JoinColumn(name="ORDER_ID")
+	@JoinColumn(name="ORDER_ID", insertable=false, updatable=false)
 	private OrderHeader orderHeader;
 
 	public OrderHeaderNote() {

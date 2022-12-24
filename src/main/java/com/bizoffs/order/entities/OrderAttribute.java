@@ -1,7 +1,8 @@
 package com.bizoffs.order.entities;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 
@@ -38,7 +39,7 @@ public class OrderAttribute implements Serializable {
 
 	//bi-directional many-to-one association to OrderHeader
 	@ManyToOne
-	@JoinColumn(name="ORDER_ID")
+	@JoinColumn(name="ORDER_ID", insertable=false, updatable=false)
 	private OrderHeader orderHeader;
 
 	public OrderAttribute() {

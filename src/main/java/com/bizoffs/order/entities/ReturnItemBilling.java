@@ -46,14 +46,14 @@ public class ReturnItemBilling implements Serializable {
 
 	//bi-directional many-to-one association to ReturnHeader
 	@ManyToOne
-	@JoinColumn(name="RETURN_ID")
+	@JoinColumn(name="RETURN_ID", insertable=false, updatable=false)
 	private ReturnHeader returnHeader;
 
 	//bi-directional many-to-one association to ReturnItem
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="RETURN_ID", referencedColumnName="RETURN_ID"),
-		@JoinColumn(name="RETURN_ITEM_SEQ_ID", referencedColumnName="RETURN_ITEM_SEQ_ID")
+		@JoinColumn(name="RETURN_ID", referencedColumnName="RETURN_ID", insertable=false, updatable=false),
+		@JoinColumn(name="RETURN_ITEM_SEQ_ID", referencedColumnName="RETURN_ITEM_SEQ_ID", insertable=false, updatable=false)
 		})
 	private ReturnItem returnItem;
 

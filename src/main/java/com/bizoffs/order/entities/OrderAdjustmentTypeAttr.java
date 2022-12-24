@@ -1,7 +1,8 @@
 package com.bizoffs.order.entities;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 
@@ -34,7 +35,7 @@ public class OrderAdjustmentTypeAttr implements Serializable {
 
 	//bi-directional many-to-one association to OrderAdjustmentType
 	@ManyToOne
-	@JoinColumn(name="ORDER_ADJUSTMENT_TYPE_ID")
+	@JoinColumn(name="ORDER_ADJUSTMENT_TYPE_ID", insertable=false, updatable=false)
 	private OrderAdjustmentType orderAdjustmentType;
 
 	public OrderAdjustmentTypeAttr() {

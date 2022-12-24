@@ -1,7 +1,8 @@
 package com.bizoffs.order.entities;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 
@@ -38,7 +39,7 @@ public class QuoteAttribute implements Serializable {
 
 	//bi-directional many-to-one association to Quote
 	@ManyToOne
-	@JoinColumn(name="QUOTE_ID")
+	@JoinColumn(name="QUOTE_ID", insertable=false, updatable=false)
 	private Quote quote;
 
 	public QuoteAttribute() {

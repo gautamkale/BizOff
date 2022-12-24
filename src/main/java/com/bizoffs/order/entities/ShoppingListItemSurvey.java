@@ -33,14 +33,14 @@ public class ShoppingListItemSurvey implements Serializable {
 
 	//bi-directional many-to-one association to ShoppingList
 	@ManyToOne
-	@JoinColumn(name="SHOPPING_LIST_ID")
+	@JoinColumn(name="SHOPPING_LIST_ID", insertable=false, updatable=false)
 	private ShoppingList shoppingList;
 
 	//bi-directional many-to-one association to ShoppingListItem
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="SHOPPING_LIST_ID", referencedColumnName="SHOPPING_LIST_ID"),
-		@JoinColumn(name="SHOPPING_LIST_ITEM_SEQ_ID", referencedColumnName="SHOPPING_LIST_ITEM_SEQ_ID")
+		@JoinColumn(name="SHOPPING_LIST_ID", referencedColumnName="SHOPPING_LIST_ID", insertable=false, updatable=false),
+		@JoinColumn(name="SHOPPING_LIST_ITEM_SEQ_ID", referencedColumnName="SHOPPING_LIST_ITEM_SEQ_ID", insertable=false, updatable=false)
 		})
 	private ShoppingListItem shoppingListItem;
 

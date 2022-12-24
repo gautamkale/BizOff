@@ -40,13 +40,13 @@ public class WorkOrderItemFulfillment implements Serializable {
 	private WorkEffort workEffort;*/
 
 	@ManyToOne
-	@JoinColumn(name="ORDER_ID")
+	@JoinColumn(name="ORDER_ID", insertable=false, updatable=false)
 	private OrderHeader orderHeader;
 	
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="ORDER_ID", referencedColumnName="ORDER_ID"),
-		@JoinColumn(name="ORDER_ITEM_SEQ_ID", referencedColumnName="ORDER_ITEM_SEQ_ID")
+		@JoinColumn(name="ORDER_ID", referencedColumnName="ORDER_ID", insertable=false, updatable=false),
+		@JoinColumn(name="ORDER_ITEM_SEQ_ID", referencedColumnName="ORDER_ITEM_SEQ_ID", insertable=false, updatable=false)
 		})
 	private OrderItem orderItem;
 	

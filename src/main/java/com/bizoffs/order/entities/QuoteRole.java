@@ -52,7 +52,7 @@ public class QuoteRole implements Serializable {
 
 	//bi-directional many-to-one association to Quote
 	@ManyToOne
-	@JoinColumn(name="QUOTE_ID")
+	@JoinColumn(name="QUOTE_ID", insertable=false, updatable=false)
 	private Quote quote;
 
 	public QuoteRole() {

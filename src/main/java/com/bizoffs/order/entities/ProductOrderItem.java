@@ -33,27 +33,27 @@ public class ProductOrderItem implements Serializable {
 
 	//bi-directional many-to-one association to OrderHeader
 	@ManyToOne
-	@JoinColumn(name="ENGAGEMENT_ID")
+	@JoinColumn(name="ENGAGEMENT_ID", insertable=false, updatable=false)
 	private OrderHeader orderHeader1;
 
 	//bi-directional many-to-one association to OrderHeader
 	@ManyToOne
-	@JoinColumn(name="ORDER_ID")
+	@JoinColumn(name="ORDER_ID", insertable=false, updatable=false)
 	private OrderHeader orderHeader2;
 
 	//bi-directional many-to-one association to OrderItem
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="ENGAGEMENT_ID", referencedColumnName="ORDER_ID"),
-		@JoinColumn(name="ENGAGEMENT_ITEM_SEQ_ID", referencedColumnName="ORDER_ITEM_SEQ_ID")
+		@JoinColumn(name="ENGAGEMENT_ID", referencedColumnName="ORDER_ID", insertable=false, updatable=false),
+		@JoinColumn(name="ENGAGEMENT_ITEM_SEQ_ID", referencedColumnName="ORDER_ITEM_SEQ_ID", insertable=false, updatable=false)
 		})
 	private OrderItem orderItem1;
 
 	//bi-directional many-to-one association to OrderItem
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="ORDER_ID", referencedColumnName="ORDER_ID"),
-		@JoinColumn(name="ORDER_ITEM_SEQ_ID", referencedColumnName="ORDER_ITEM_SEQ_ID")
+		@JoinColumn(name="ORDER_ID", referencedColumnName="ORDER_ID", insertable=false, updatable=false),
+		@JoinColumn(name="ORDER_ITEM_SEQ_ID", referencedColumnName="ORDER_ITEM_SEQ_ID", insertable=false, updatable=false)
 		})
 	private OrderItem orderItem2;
 

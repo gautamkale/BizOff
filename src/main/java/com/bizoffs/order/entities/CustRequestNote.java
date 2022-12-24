@@ -33,7 +33,7 @@ public class CustRequestNote implements Serializable {
 
 	//bi-directional many-to-one association to CustRequest
 	@ManyToOne
-	@JoinColumn(name="CUST_REQUEST_ID")
+	@JoinColumn(name="CUST_REQUEST_ID", insertable=false, updatable=false)
 	private CustRequest custRequest;
 
 	//bi-directional many-to-one association to NoteData

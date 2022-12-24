@@ -1,7 +1,8 @@
 package com.bizoffs.order.entities;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 
@@ -32,7 +33,7 @@ public class OrderDenylist implements Serializable {
 
 	//bi-directional many-to-one association to OrderDenylistType
 	@ManyToOne
-	@JoinColumn(name="ORDER_DENYLIST_TYPE_ID")
+	@JoinColumn(name="ORDER_DENYLIST_TYPE_ID", insertable=false, updatable=false)
 	private OrderDenylistType orderDenylistType;
 
 	public OrderDenylist() {

@@ -44,6 +44,18 @@ public class CustRequestStatus implements Serializable {
 	@JoinColumn(name="CUST_REQUEST_ID")
 	private CustRequest custRequest;
 
+	@ManyToOne
+	@JoinColumn(name="STATUS_ID")
+	private StatusItem statusItem;
+
+	public StatusItem getStatusItem() {
+		return statusItem;
+	}
+
+	public void setStatusItem(StatusItem statusItem) {
+		this.statusItem = statusItem;
+	}
+
 	//bi-directional many-to-one association to StatusItem
 /*	@ManyToOne
 	@JoinColumn(name="STATUS_ID")

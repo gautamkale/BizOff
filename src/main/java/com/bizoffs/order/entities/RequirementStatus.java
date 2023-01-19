@@ -49,6 +49,17 @@ public class RequirementStatus implements Serializable {
 	@JoinColumn(name="CHANGE_BY_USER_LOGIN_ID")
 	private UserLogin userLogin;*/
 
+	@ManyToOne
+	@JoinColumn(name="STATUS_ID")
+	private StatusItem statusItem;
+
+	public StatusItem getStatusItem() {
+		return statusItem;
+	}
+
+	public void setStatusItem(StatusItem statusItem) {
+		this.statusItem = statusItem;
+	}
 	public RequirementStatus() {
 	}
 

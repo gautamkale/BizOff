@@ -88,8 +88,34 @@ public class OrderHeader implements Serializable {
 	@Column(name="VISIT_ID")
 	private String visitId;
 
+	@Column(name = "PRODUCT_STORE_ID", nullable = true, length = 20)
+	private String productStoreId;
+
+	@Column(name = "CURRENCY_UOM", nullable = true, length = 20)
+	private String currencyUom;
+
+	@Column(name = "BILLING_ACCOUNT_ID")
+	private String billingAccountId;
+
+/*	@OneToOne
+	private String statusId;
+
+	public String getStatusId() {
+		return statusId;
+	}
+
+	public void setStatusId(String statusId) {
+		this.statusId = statusId;
+	}*/
+
 	@OneToMany(mappedBy="orderHeader")
 	private List<CommunicationEventOrder> communicationEventOrders;
+
+	//bi-directional many-to-one association to StatusItem
+
+	@ManyToOne
+	@JoinColumn(name="STATUS_ID")
+	private StatusItem statusItem;
 
 	//bi-directional many-to-one association to AllocationPlanItem
 	/*@OneToMany(mappedBy="orderHeader")
@@ -1410,5 +1436,34 @@ public class OrderHeader implements Serializable {
 
 		return workOrderItemFulfillment;
 	}
+	public String getProductStoreId() {
+		return productStoreId;
+	}
 
+	public void setProductStoreId(String productStoreId) {
+		this.productStoreId = productStoreId;
+	}
+	public String getCurrencyUom() {
+		return currencyUom;
+	}
+
+	public void setCurrencyUom(String currencyUom) {
+		this.currencyUom = currencyUom;
+	}
+
+	public String getBillingAccountId() {
+		return billingAccountId;
+	}
+
+	public void setBillingAccountId(String billingAccountId) {
+		this.billingAccountId = billingAccountId;
+	}
+
+	public StatusItem getStatusItem() {
+		return statusItem;
+	}
+
+	public void setStatusItem(StatusItem statusItem) {
+		this.statusItem = statusItem;
+	}
 }

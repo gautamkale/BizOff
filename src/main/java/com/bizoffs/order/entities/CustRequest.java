@@ -68,6 +68,18 @@ public class CustRequest implements Serializable {
 
 	private String reason;
 
+	@ManyToOne
+	@JoinColumn(name="STATUS_ID")
+	private StatusItem statusItem;
+
+	public StatusItem getStatusItem() {
+		return statusItem;
+	}
+
+	public void setStatusItem(StatusItem statusItem) {
+		this.statusItem = statusItem;
+	}
+
 	@Column(name="RESPONSE_REQUIRED_DATE")
 	private Timestamp responseRequiredDate;
 

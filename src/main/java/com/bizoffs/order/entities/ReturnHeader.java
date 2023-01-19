@@ -57,6 +57,17 @@ public class ReturnHeader implements Serializable {
 	//bi-directional many-to-one association to ReturnContactMech
 	@OneToMany(mappedBy="returnHeader")
 	private List<ReturnContactMech> returnContactMeches;
+	@ManyToOne
+	@JoinColumn(name="STATUS_ID")
+	private StatusItem statusItem;
+
+	public StatusItem getStatusItem() {
+		return statusItem;
+	}
+
+	public void setStatusItem(StatusItem statusItem) {
+		this.statusItem = statusItem;
+	}
 
 	//bi-directional many-to-one association to BillingAccount
 	/*@ManyToOne

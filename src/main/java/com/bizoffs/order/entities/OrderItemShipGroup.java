@@ -59,89 +59,32 @@ public class OrderItemShipGroup implements Serializable {
 	@Column(name="TRACKING_NUMBER")
 	private String trackingNumber;
 
-	//bi-directional many-to-one association to Agreement
-	/*@ManyToOne
-	@JoinColumn(name="SUPPLIER_AGREEMENT_ID")
-	private Agreement agreement;
+	@Column(name="SHIPMENT_METHOD_TYPE_ID")
+	private String shipmentMethodTypeId;
 
-	//bi-directional many-to-one association to CarrierShipmentMethod
-	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name="CARRIER_PARTY_ID", referencedColumnName="PARTY_ID"),
-		@JoinColumn(name="CARRIER_ROLE_TYPE_ID", referencedColumnName="ROLE_TYPE_ID"),
-		@JoinColumn(name="SHIPMENT_METHOD_TYPE_ID", referencedColumnName="SHIPMENT_METHOD_TYPE_ID")
-		})
-	private CarrierShipmentMethod carrierShipmentMethod;
+	@Column(name="PARTY_ID")
+	private String partyId;
 
-	//bi-directional many-to-one association to ContactMech
-	@ManyToOne
-	@JoinColumn(name="TELECOM_CONTACT_MECH_ID")
-	private ContactMech contactMech1;
+	@Column(name="ROLE_TYPE_ID")
+	private String roleTypeId;
 
-	//bi-directional many-to-one association to ContactMech
-	@ManyToOne
-	@JoinColumn(name="CONTACT_MECH_ID")
-	private ContactMech contactMech2;
+	@Column(name="CARRIER_PARTY_ID")
+	private String carrierPartyId;
 
-	//bi-directional many-to-one association to Facility
-	@ManyToOne
-	@JoinColumn(name="FACILITY_ID")
-	private Facility facility;
-*/
+	@Column(name="CONTACT_MECH_ID")
+	private String contactMechId;
+
+
 	//bi-directional many-to-one association to OrderHeader
 	@ManyToOne
 	@JoinColumn(name="ORDER_ID", insertable=false, updatable=false)
 	private OrderHeader orderHeader;
 
-	//bi-directional many-to-one association to Party
-	/*@ManyToOne
-	@JoinColumn(name="CARRIER_PARTY_ID")
-	private Party party1;
 
-	//bi-directional many-to-one association to Party
-	@ManyToOne
-	@JoinColumn(name="VENDOR_PARTY_ID")
-	private Party party2;
-
-	//bi-directional many-to-one association to Party
-	@ManyToOne
-	@JoinColumn(name="SUPPLIER_PARTY_ID")
-	private Party party3;
-
-	//bi-directional many-to-one association to PartyRole
-	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name="CARRIER_PARTY_ID", referencedColumnName="PARTY_ID"),
-		@JoinColumn(name="CARRIER_ROLE_TYPE_ID", referencedColumnName="ROLE_TYPE_ID")
-		})
-	private PartyRole partyRole;
-
-	//bi-directional many-to-one association to PostalAddress
-	@ManyToOne
-	@JoinColumn(name="CONTACT_MECH_ID")
-	private PostalAddress postalAddress;
-
-	//bi-directional many-to-one association to ShipmentMethodType
-	@ManyToOne
-	@JoinColumn(name="SHIPMENT_METHOD_TYPE_ID")
-	private ShipmentMethodType shipmentMethodType;
-
-	//bi-directional many-to-one association to TelecomNumber
-	@ManyToOne
-	@JoinColumn(name="TELECOM_CONTACT_MECH_ID")
-	private TelecomNumber telecomNumber;*/
-
-	//bi-directional many-to-one association to OrderItemShipGroupAssoc
 	@OneToMany(mappedBy="orderItemShipGroup")
 	private List<OrderItemShipGroupAssoc> orderItemShipGroupAssocs;
 
-	//bi-directional many-to-one association to PicklistBin
-	/*@OneToMany(mappedBy="orderItemShipGroup")
-	private List<PicklistBin> picklistBins;
 
-	//bi-directional many-to-one association to PicklistItem
-	@OneToMany(mappedBy="orderItemShipGroup")
-	private List<PicklistItem> picklistItems;*/
 
 	public OrderItemShipGroup() {
 	}
@@ -258,45 +201,7 @@ public class OrderItemShipGroup implements Serializable {
 		this.trackingNumber = trackingNumber;
 	}
 
-	/*public Agreement getAgreement() {
-		return this.agreement;
-	}
 
-	public void setAgreement(Agreement agreement) {
-		this.agreement = agreement;
-	}
-
-	public CarrierShipmentMethod getCarrierShipmentMethod() {
-		return this.carrierShipmentMethod;
-	}
-
-	public void setCarrierShipmentMethod(CarrierShipmentMethod carrierShipmentMethod) {
-		this.carrierShipmentMethod = carrierShipmentMethod;
-	}
-
-	public ContactMech getContactMech1() {
-		return this.contactMech1;
-	}
-
-	public void setContactMech1(ContactMech contactMech1) {
-		this.contactMech1 = contactMech1;
-	}
-
-	public ContactMech getContactMech2() {
-		return this.contactMech2;
-	}
-
-	public void setContactMech2(ContactMech contactMech2) {
-		this.contactMech2 = contactMech2;
-	}
-
-	public Facility getFacility() {
-		return this.facility;
-	}
-
-	public void setFacility(Facility facility) {
-		this.facility = facility;
-	}*/
 
 	public OrderHeader getOrderHeader() {
 		return this.orderHeader;
@@ -306,61 +211,7 @@ public class OrderItemShipGroup implements Serializable {
 		this.orderHeader = orderHeader;
 	}
 
-	/*public Party getParty1() {
-		return this.party1;
-	}
 
-	public void setParty1(Party party1) {
-		this.party1 = party1;
-	}
-
-	public Party getParty2() {
-		return this.party2;
-	}
-
-	public void setParty2(Party party2) {
-		this.party2 = party2;
-	}
-
-	public Party getParty3() {
-		return this.party3;
-	}
-
-	public void setParty3(Party party3) {
-		this.party3 = party3;
-	}
-
-	public PartyRole getPartyRole() {
-		return this.partyRole;
-	}
-
-	public void setPartyRole(PartyRole partyRole) {
-		this.partyRole = partyRole;
-	}
-
-	public PostalAddress getPostalAddress() {
-		return this.postalAddress;
-	}
-
-	public void setPostalAddress(PostalAddress postalAddress) {
-		this.postalAddress = postalAddress;
-	}
-
-	public ShipmentMethodType getShipmentMethodType() {
-		return this.shipmentMethodType;
-	}
-
-	public void setShipmentMethodType(ShipmentMethodType shipmentMethodType) {
-		this.shipmentMethodType = shipmentMethodType;
-	}
-
-	public TelecomNumber getTelecomNumber() {
-		return this.telecomNumber;
-	}
-
-	public void setTelecomNumber(TelecomNumber telecomNumber) {
-		this.telecomNumber = telecomNumber;
-	}*/
 
 	public List<OrderItemShipGroupAssoc> getOrderItemShipGroupAssocs() {
 		return this.orderItemShipGroupAssocs;
@@ -384,48 +235,43 @@ public class OrderItemShipGroup implements Serializable {
 		return orderItemShipGroupAssoc;
 	}
 
-/*	public List<PicklistBin> getPicklistBins() {
-		return this.picklistBins;
+	public String getShipmentMethodTypeId() {
+		return shipmentMethodTypeId;
 	}
 
-	public void setPicklistBins(List<PicklistBin> picklistBins) {
-		this.picklistBins = picklistBins;
+	public String getPartyId() {
+		return partyId;
 	}
 
-	public PicklistBin addPicklistBin(PicklistBin picklistBin) {
-		getPicklistBins().add(picklistBin);
-		picklistBin.setOrderItemShipGroup(this);
-
-		return picklistBin;
+	public void setPartyId(String partyId) {
+		this.partyId = partyId;
 	}
 
-	public PicklistBin removePicklistBin(PicklistBin picklistBin) {
-		getPicklistBins().remove(picklistBin);
-		picklistBin.setOrderItemShipGroup(null);
-
-		return picklistBin;
+	public String getRoleTypeId() {
+		return roleTypeId;
 	}
 
-	public List<PicklistItem> getPicklistItems() {
-		return this.picklistItems;
+	public void setRoleTypeId(String roleTypeId) {
+		this.roleTypeId = roleTypeId;
 	}
 
-	public void setPicklistItems(List<PicklistItem> picklistItems) {
-		this.picklistItems = picklistItems;
+	public String getCarrierPartyId() {
+		return carrierPartyId;
 	}
 
-	public PicklistItem addPicklistItem(PicklistItem picklistItem) {
-		getPicklistItems().add(picklistItem);
-		picklistItem.setOrderItemShipGroup(this);
-
-		return picklistItem;
+	public void setCarrierPartyId(String carrierPartyId) {
+		this.carrierPartyId = carrierPartyId;
 	}
 
-	public PicklistItem removePicklistItem(PicklistItem picklistItem) {
-		getPicklistItems().remove(picklistItem);
-		picklistItem.setOrderItemShipGroup(null);
+	public void setShipmentMethodTypeId(String shipmentMethodTypeId) {
+		this.shipmentMethodTypeId = shipmentMethodTypeId;
+	}
 
-		return picklistItem;
-	}*/
+	public String getContactMechId() {
+		return contactMechId;
+	}
 
+	public void setContactMechId(String contactMechId) {
+		this.contactMechId = contactMechId;
+	}
 }

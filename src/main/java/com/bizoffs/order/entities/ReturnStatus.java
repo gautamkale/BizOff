@@ -44,6 +44,18 @@ public class ReturnStatus implements Serializable {
 	@JoinColumn(name="RETURN_ID")
 	private ReturnHeader returnHeader;
 
+	@ManyToOne
+	@JoinColumn(name="STATUS_ID")
+	private StatusItem statusItem;
+
+	public StatusItem getStatusItem() {
+		return statusItem;
+	}
+
+	public void setStatusItem(StatusItem statusItem) {
+		this.statusItem = statusItem;
+	}
+
 	//bi-directional many-to-one association to StatusItem
 	/*@ManyToOne
 	@JoinColumn(name="STATUS_ID")

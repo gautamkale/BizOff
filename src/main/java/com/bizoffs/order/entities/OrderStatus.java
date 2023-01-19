@@ -50,6 +50,18 @@ public class OrderStatus implements Serializable {
 	@JoinColumn(name="ORDER_ID")
 	private OrderHeader orderHeader;
 
+	@ManyToOne
+	@JoinColumn(name="STATUS_ID")
+	private StatusItem statusItem;
+
+	public StatusItem getStatusItem() {
+		return statusItem;
+	}
+
+	public void setStatusItem(StatusItem statusItem) {
+		this.statusItem = statusItem;
+	}
+
 	//bi-directional many-to-one association to StatusItem
 /*	@ManyToOne
 	@JoinColumn(name="STATUS_ID")

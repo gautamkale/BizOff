@@ -128,9 +128,22 @@ public class OrderItem implements Serializable {
 	private BigDecimal unitRecurringPrice;
 
 	@ManyToOne
-	@JoinColumn(name="ORDER_HEADER_ORDER_ID")
+	@JoinColumn(name="STATUS_ID")
+	private StatusItem statusItem;
+
+	public StatusItem getStatusItem() {
+		return statusItem;
+	}
+
+	public void setStatusItem(StatusItem statusItem) {
+		this.statusItem = statusItem;
+	}
+	@ManyToOne
+	@JoinColumn(name="ORDER_ID")
 	private OrderHeader orderHeader;
 
+	@Column(name="PRODUCT_ID")
+	private String productId;
 	//bi-directional many-to-one association to OrderItemGroup
 	@ManyToOne
 	@JoinColumns({
@@ -201,8 +214,6 @@ public class OrderItem implements Serializable {
 	private List<ProductOrderItem> productOrderItems1;
 
 	//bi-directional many-to-one association to ProductOrderItem
-	@OneToMany(mappedBy="orderItem2")
-	private List<ProductOrderItem> productOrderItems2;
 
 	//bi-directional many-to-one association to ReturnItem
 	@OneToMany(mappedBy="orderItem")
@@ -997,27 +1008,7 @@ public class OrderItem implements Serializable {
 		return productOrderItems1;
 	}
 
-	public List<ProductOrderItem> getProductOrderItems2() {
-		return this.productOrderItems2;
-	}
 
-	public void setProductOrderItems2(List<ProductOrderItem> productOrderItems2) {
-		this.productOrderItems2 = productOrderItems2;
-	}
-
-	public ProductOrderItem addProductOrderItems2(ProductOrderItem productOrderItems2) {
-		getProductOrderItems2().add(productOrderItems2);
-		productOrderItems2.setOrderItem2(this);
-
-		return productOrderItems2;
-	}
-
-	public ProductOrderItem removeProductOrderItems2(ProductOrderItem productOrderItems2) {
-		getProductOrderItems2().remove(productOrderItems2);
-		productOrderItems2.setOrderItem2(null);
-
-		return productOrderItems2;
-	}
 
 	public List<ReturnItem> getReturnItems() {
 		return this.returnItems;
@@ -1107,4 +1098,11 @@ public class OrderItem implements Serializable {
 		return workOrderItemFulfillment;
 	}
 
+	public String getProductId() {
+		return productId;
+	}
+
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
 }

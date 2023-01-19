@@ -47,6 +47,18 @@ public class Quote implements Serializable {
 	@Column(name="VALID_THRU_DATE")
 	private Timestamp validThruDate;
 
+	@ManyToOne
+	@JoinColumn(name="STATUS_ID")
+	private StatusItem statusItem;
+
+	public StatusItem getStatusItem() {
+		return statusItem;
+	}
+
+	public void setStatusItem(StatusItem statusItem) {
+		this.statusItem = statusItem;
+	}
+
 	//bi-directional many-to-one association to Enumeration
 	/*@ManyToOne
 	@JoinColumn(name="SALES_CHANNEL_ENUM_ID")

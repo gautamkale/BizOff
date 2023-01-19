@@ -41,6 +41,18 @@ public class AllocationPlanHeader implements Serializable {
 
 	//bi-directional many-to-one association to StatusItem
 
+	@ManyToOne
+	@JoinColumn(name="STATUS_ID")
+	private StatusItem statusItem;
+
+	public StatusItem getStatusItem() {
+		return statusItem;
+	}
+
+	public void setStatusItem(StatusItem statusItem) {
+		this.statusItem = statusItem;
+	}
+
 	public AllocationPlanHeader() {
 	}
 

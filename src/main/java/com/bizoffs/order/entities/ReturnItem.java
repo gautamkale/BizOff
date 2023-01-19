@@ -62,6 +62,17 @@ public class ReturnItem implements Serializable {
 	@JoinColumn(name="PRODUCT_ID")
 	private Product product;*/
 
+	@ManyToOne
+	@JoinColumn(name="STATUS_ID")
+	private StatusItem statusItem;
+
+	public StatusItem getStatusItem() {
+		return statusItem;
+	}
+
+	public void setStatusItem(StatusItem statusItem) {
+		this.statusItem = statusItem;
+	}
 	//bi-directional many-to-one association to ReturnHeader
 	@ManyToOne
 	@JoinColumn(name="RETURN_ID", insertable=false, updatable=false)

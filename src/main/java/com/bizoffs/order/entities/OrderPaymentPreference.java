@@ -15,6 +15,7 @@ import java.util.List;
 @Entity
 @Table(name="ORDER_PAYMENT_PREFERENCE")
 @NamedQuery(name="OrderPaymentPreference.findAll", query="SELECT o FROM OrderPaymentPreference o")
+
 public class OrderPaymentPreference implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,25 @@ public class OrderPaymentPreference implements Serializable {
 	@Column(name="SWIPED_FLAG")
 	private String swipedFlag;
 
+	@Column(name="PAYMENT_METHOD_ID")
+	private String paymentMethodId;
+
+	@Column(name="PAYMENT_METHOD_TYPE_ID")
+	private String paymentMethodTypeId;
+
 	private String track2;
+
+	@ManyToOne
+	@JoinColumn(name="STATUS_ID")
+	private StatusItem statusItem;
+
+	public StatusItem getStatusItem() {
+		return statusItem;
+	}
+
+	public void setStatusItem(StatusItem statusItem) {
+		this.statusItem = statusItem;
+	}
 
 	//bi-directional many-to-one association to FinAccount
 	/*@ManyToOne
@@ -421,5 +440,19 @@ public class OrderPaymentPreference implements Serializable {
 
 		return returnItemRespons;
 	}
+	public String getPaymentMethodId() {
+		return paymentMethodId;
+	}
 
+	public void setPaymentMethodId(String paymentMethodId) {
+		this.paymentMethodId = paymentMethodId;
+	}
+
+	public String getPaymentMethodTypeId() {
+		return paymentMethodTypeId;
+	}
+
+	public void setPaymentMethodTypeId(String paymentMethodTypeId) {
+		this.paymentMethodTypeId = paymentMethodTypeId;
+	}
 }

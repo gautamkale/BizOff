@@ -36,7 +36,7 @@ public class OrderTerm implements Serializable {
 	private Timestamp lastUpdatedTxStamp;
 
 	@Column(name="TERM_DAYS")
-	private BigDecimal termDays;
+	private Long termDays;
 
 	@Column(name="TERM_VALUE")
 	private BigDecimal termValue;
@@ -114,11 +114,11 @@ public class OrderTerm implements Serializable {
 		this.lastUpdatedTxStamp = lastUpdatedTxStamp;
 	}
 
-	public BigDecimal getTermDays() {
+	public Long getTermDays() {
 		return this.termDays;
 	}
 
-	public void setTermDays(BigDecimal termDays) {
+	public void setTermDays(Long termDays) {
 		this.termDays = termDays;
 	}
 

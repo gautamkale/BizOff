@@ -66,6 +66,18 @@ public class CustRequestItem implements Serializable {
 	@Lob
 	private String story;
 
+
+	@ManyToOne
+	@JoinColumn(name="STATUS_ID")
+	private StatusItem statusItem;
+
+	public StatusItem getStatusItem() {
+		return statusItem;
+	}
+
+	public void setStatusItem(StatusItem statusItem) {
+		this.statusItem = statusItem;
+	}
 	//bi-directional many-to-one association to CustRequest
 	@ManyToOne
 	@JoinColumn(name="CUST_REQUEST_ID", insertable=false, updatable=false)

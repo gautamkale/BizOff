@@ -64,6 +64,17 @@ public class Requirement implements Serializable {
 	@Column(name="REQUIREMENT_START_DATE")
 	private Timestamp requirementStartDate;
 
+	@ManyToOne
+	@JoinColumn(name="STATUS_ID")
+	private StatusItem statusItem;
+
+	public StatusItem getStatusItem() {
+		return statusItem;
+	}
+
+	public void setStatusItem(StatusItem statusItem) {
+		this.statusItem = statusItem;
+	}
 	@Lob
 	@Column(name="USE_CASE")
 	private String useCase;

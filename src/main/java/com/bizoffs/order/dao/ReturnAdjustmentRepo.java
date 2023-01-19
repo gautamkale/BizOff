@@ -13,6 +13,6 @@ public interface ReturnAdjustmentRepo extends JpaRepository<ReturnAdjustment,Str
     @Query("From ReturnAdjustment  r where r.orderAdjustment.orderAdjustmentId=:orderAdjustmentId")
     List<ReturnAdjustment> findByOrderAdjustmentId(@Param("orderAdjustmentId") String orderAdjustmentId);
 
-    @Query("From ReturnAdjustment  r where r.returnHeader.returnId = :returnId and  r.returnType.returnTypeId=:retrunTypeId")
-    List<ReturnAdjustment> findByReturnIdAndReturnTypeId(String returnId,String returnTypeId);
+    @Query("From ReturnAdjustment  r where r.returnHeader.returnId =:returnId and  r.returnType.returnTypeId =:returnTypeId")
+    List<ReturnAdjustment> findByReturnIdAndReturnTypeId(@Param("returnId")  String returnId,@Param("returnTypeId") String returnTypeId);
 }

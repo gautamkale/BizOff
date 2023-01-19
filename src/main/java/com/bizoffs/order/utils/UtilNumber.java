@@ -193,7 +193,7 @@ public final class UtilNumber {
         }
 
         int scale = -1;
-        String value = UtilProperties.getPropertyValue(property);
+        String value = UtilProperties.getPropertyValue(file,property);
         try {
             scale = Integer.parseInt(value);
         } catch (NumberFormatException e) {
@@ -250,7 +250,7 @@ public final class UtilNumber {
             return DEFAULT_BD_ROUNDING_MODE;
         }
 
-        String value = UtilProperties.getPropertyValue(property);
+        String value = UtilProperties.getPropertyValue(file,property);
         RoundingMode mode = roundingModeFromString(value);
         if (mode == null) {
              log.warn("Could not set decimal rounding mode from " + property + "=" + value + ". Using default mode of "

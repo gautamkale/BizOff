@@ -139,7 +139,7 @@ public class OrderItem implements Serializable {
 		this.statusItem = statusItem;
 	}
 	@ManyToOne
-	@JoinColumn(name="ORDER_ID")
+	@JoinColumn(name="ORDER_ID", insertable=false, updatable=false)
 	private OrderHeader orderHeader;
 
 	@Column(name="PRODUCT_ID")

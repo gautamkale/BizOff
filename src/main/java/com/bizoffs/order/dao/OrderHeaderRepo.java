@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface OrderHeaderRepo extends JpaRepository<OrderHeader,String> {
 
-    @Query("From OrderItem o where o.orderHeader.orderType.orderTypeId = \"PURCHASE_ORDER\" and o.statusItem.statusId not in ( \"ITEM_CANCELLED\", \"ITEM_REJECTED\", \"ITEM_COMPLETED\") and o.productId =:priductId" )
+    @Query("From OrderItem o where o.orderHeader.orderType.orderTypeId = \"PURCHASE_ORDER\" and o.statusItem.statusId not in ( \"ITEM_CANCELLED\", \"ITEM_REJECTED\", \"ITEM_COMPLETED\") and o.productId =:productId" )
     public List<OrderItem> getOrderHeaderAndItems(@Param("productId") String productId);
 
 

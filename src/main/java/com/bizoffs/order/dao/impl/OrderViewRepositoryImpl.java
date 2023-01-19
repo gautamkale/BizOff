@@ -1,23 +1,24 @@
 package com.bizoffs.order.dao.impl;
 
-import com.bizoffs.order.config.ConfigSqlProperty;
 import com.bizoffs.order.dao.OrderViewRepository;
 import com.bizoffs.order.entities.OrderPaymentPreference;
+import com.bizoffs.order.utils.UtilProperties;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
+@Repository
 public class OrderViewRepositoryImpl implements OrderViewRepository {
 
     @PersistenceContext
     private EntityManager em;
-    @Autowired
-    private ConfigSqlProperty configSqlProperty;
+
+    private UtilProperties configSqlProperty ;
 
 
     @Override
@@ -25,7 +26,7 @@ public class OrderViewRepositoryImpl implements OrderViewRepository {
        List<OrderPaymentPreference>  orderPaymentPreference= new ArrayList<>();
         try {
           //  String sql=buildSql(configSqlProperty.getSql("OrderPurchasePaymentSummary"));
-            TypedQuery<OrderPaymentPreference> query =em.createQuery(configSqlProperty.getSql("OrderPurchasePaymentSummary"),OrderPaymentPreference.class);
+            TypedQuery<OrderPaymentPreference> query =em.createQuery(UtilProperties.getPropertyValue("order_view_sql","OrderPurchasePaymentSummary"),OrderPaymentPreference.class);
             query.setParameter(1,billingAccountId);
             query.setParameter(2,paymentMethodType);
             query.setParameter(3,orderStatus);

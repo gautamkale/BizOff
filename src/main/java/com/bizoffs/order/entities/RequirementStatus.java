@@ -50,7 +50,7 @@ public class RequirementStatus implements Serializable {
 	private UserLogin userLogin;*/
 
 	@ManyToOne
-	@JoinColumn(name="STATUS_ID")
+	@JoinColumn(name="STATUS_ID",insertable=false, updatable=false)
 	private StatusItem statusItem;
 
 	public StatusItem getStatusItem() {

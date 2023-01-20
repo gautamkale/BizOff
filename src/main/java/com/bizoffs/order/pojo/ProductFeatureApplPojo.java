@@ -11,7 +11,9 @@ import java.sql.Timestamp;
 @Data
 public class ProductFeatureApplPojo implements Serializable {
     private static final long serialVersionUID = 1L;
-    private ProductFeatureApplPK id;
+    private String productId;
+    private String productFeatureId;
+    private java.util.Date fromDate;
     private BigDecimal amount;
     private Timestamp createdStamp;
     private Timestamp createdTxStamp;
